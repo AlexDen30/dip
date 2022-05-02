@@ -1,4 +1,4 @@
-import styles from './packingView.module.css';
+import styles from './packingView2D.module.css';
 
 const blocks = [
     {width: 5, height: 3, top: 5, left: 6},
@@ -14,7 +14,7 @@ const calculateBlockStyle = (block) => ({
     left: block.top,
 })
 
-function PackingView() {
+function PackingView2D() {
   return (
     <div className={styles.container}>
         <div className={styles.blocks}>
@@ -31,4 +31,4 @@ function PackingView() {
   );
 }
 
-export default PackingView;
+export default PackingView2D;
