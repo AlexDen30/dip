@@ -22,8 +22,9 @@ const Box = ({position, metrics, color, opacity}) => {
 const PackingView3D = ({blocks, containerMetrics}) => {
   return (
     <div className={styles.container}>
-        <Canvas camera={{position:[50, 50, 50]}}>
+        <Canvas camera={{position:[50, 25, 50]}}>
             <OrbitControls />
+            <Stars />
             <ambientLight intensity={0.5} />
             <spotLight position={[1000, 1000, 1000]} angle={0.3} />
             <axesHelper args={[10]} />

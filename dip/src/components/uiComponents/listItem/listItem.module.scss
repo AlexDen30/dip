@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: aquamarine;
+    padding: 5px 0px 5px 10px;
+    width: 100%;
+
+    .primaryText {
+        font-weight: 900;
+    }
+
+    .secondaryText {
+        font-weight: 200;
+    }
+}

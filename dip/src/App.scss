@@ -1,0 +1,40 @@
+// @use './stylesVariables.scss' as variables;
+$scrollbar-width: 4px;
+$all-background-color: #FFF;
+$background-color: aquamarine;
+$borders-color: rgb(100, 203, 169);
+
+body {
+  margin: 0;
+  font-size: 13px;
+  font-family: cursive;
+  background-color: $all-background-color;
+}
+
+::-webkit-scrollbar {
+  width: $scrollbar-width;
+  background: $background-color;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background: teal;
+}
+
+button {
+  min-width: 20px;
+  height: 30px;
+  background-color: $background-color;
+  border-color: $borders-color;
+  border-radius: 3px;
+}
+
+
+.border-top-bottom {
+  border-top: 1px solid rgb(100, 203, 169);
+  border-bottom: 1px solid rgb(100, 203, 169);
+}
+
+h4, h5 {
+  margin: 15px 0 15px 0;
+}
