@@ -32,7 +32,7 @@ const PackingView3D = ({blocks, containerMetrics}) => {
             {blocks.map((block, ind) => (
                 <Box
                     position={block.position}
-                    metrics={block.metrics}
+                    metrics={[block.metrics.width, block.metrics.height, block.metrics.depth]}
                     color={generateRandomColor()}
                     key={ind}
                 />

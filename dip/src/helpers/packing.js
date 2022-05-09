@@ -14,7 +14,7 @@ export const packingMaxHeight = (container, boxes) => {
 
         result.push({
             position,
-            metrics: [box.width, box.height, box.depth]
+            metrics: { width: box.width, height: box.height, depth: box.depth}
         })
 
         counter--

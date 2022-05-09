@@ -11,20 +11,19 @@ const MainLayout = () => {
 
     const [boxes, setBoxes] = useState([])
     const [container, setContainer] = useState({})
-    const [boxesForView, setBoxesForView] = useState([])
     const [density, setDensity] = useState()
 
     const handleRandomizePalleting = () => {
         const [containerGenerated, boxesGenerated] = generatePackingData()
-        setBoxes(boxesGenerated)
-        setContainer(containerGenerated)
+        packing(boxesGenerated, containerGenerated)
     }
 
-    useEffect(() => {
+    const packing = (boxes, container) => {
         const [boxesCalculatedForView, densityCalculated] = packingMaxHeight(container, boxes)
-        setBoxesForView(boxesCalculatedForView)
+        setContainer(container)
+        setBoxes(boxesCalculatedForView)
         setDensity(densityCalculated)
-    }, [boxes])
+    }
 
     return (
         <div className={styles.container}>
@@ -37,7 +36,7 @@ const MainLayout = () => {
                 <SideMenu blocks={boxes} container={container} density={density} handleGenerate={handleRandomizePalleting}/>
             </div>
             <div className={styles.view}>
-                <PackingView3D blocks={boxesForView} containerMetrics={[container.width, container.height, container.depth]} />
+                <PackingView3D blocks={boxes} containerMetrics={[container.width, container.height, container.depth]} />
             </div>
         </main>
         <footer className={styles.footer}>
