@@ -2,14 +2,14 @@ import ListItem from '../uiComponents/listItem/ListItem';
 import styles from './sideMenu.module.scss';
 
 
-const SideMenu = ({container, blocks, handleGenerate}) => {
+const SideMenu = ({container, blocks, density, handleGenerate}) => {
     return (
         <div className={styles.container}>
             <h4>Palleting</h4>
             <div className={styles.info}>
             { !!container.width &&
                 <ListItem
-                    primaryText={'Container'}
+                    primaryText={`Container (density: ${density.toFixed(4)})`}
                     secondaryText={`width: ${container.width}, depth: ${container.depth}, height: ${container.height}`}
                 />
             }
