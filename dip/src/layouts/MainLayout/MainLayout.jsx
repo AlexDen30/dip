@@ -18,6 +18,12 @@ const MainLayout = () => {
         packing(boxesGenerated, containerGenerated)
     }
 
+    const handleUploadJson = (config) => {
+        if (!!config.boxes.length && !!config.container.width) {
+            packing(config.boxes, config.container)
+        }
+    }
+
     const packing = (boxes, container) => {
         const [boxesCalculatedForView, densityCalculated] = packingMaxHeight(container, boxes)
         setContainer(container)
@@ -33,7 +39,13 @@ const MainLayout = () => {
         <main className={styles.main}>
             {/* <PackingView2D /> */}
             <div className={styles.sideMenu}>
-                <SideMenu blocks={boxes} container={container} density={density} handleGenerate={handleRandomizePalleting}/>
+                <SideMenu 
+                    blocks={boxes} 
+                    container={container} 
+                    density={density} 
+                    handleGenerate={handleRandomizePalleting} 
+                    handleUploadJson={handleUploadJson}
+                />
             </div>
             <div className={styles.view}>
                 <PackingView3D blocks={boxes} containerMetrics={[container.width, container.height, container.depth]} />
