@@ -1,13 +1,17 @@
 import { useState } from 'react';
 import ListItem from '../uiComponents/listItem/ListItem';
 import ModalWindow from '../uiComponents/modalWindow/ModalWindow';
+import downloadJson from '../utilityComponents/downloadFile';
 import JsonUploader from '../utilityComponents/fileUploader/JsonUploader';
 import styles from './sideMenu.module.scss';
-
 
 const SideMenu = ({container, blocks, density, handleGenerate, handleUploadJson}) => {
 
     const [isMenuShowed, setIsMenuShowed] = useState(false);
+
+    const handleDownload = () => {
+        downloadJson({container, density, blocks}, 'packing.json');
+    }
 
     return (
         <div className={styles.container}>
@@ -41,7 +45,7 @@ const SideMenu = ({container, blocks, density, handleGenerate, handleUploadJson}
             <ModalWindow isShowed={isMenuShowed} close={() => setIsMenuShowed(false)}>
                 <div className={styles.modalContainer} onClick={() => setIsMenuShowed(false)}>
                     <JsonUploader returnParsedJson={handleUploadJson}/>
-                    <button>Export as JSON</button>
+                    <button onClick={handleDownload}>Export as JSON</button>
                     <button onClick={handleGenerate}>Generate random Palleting</button>
                     <button>Show statisics</button>
                 </div>
