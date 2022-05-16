@@ -3,9 +3,11 @@ import PackingView2D from '../../components/packingView2D/PackingView2D';
 import PackingView3D from '../../components/packingView3D/PackingView3D';
 import SideMenu from '../../components/sideMenu/SideMenu';
 import { generatePackingData } from '../../helpers/dataGenerator';
-import { packingMaxHeight } from '../../helpers/packing';
+import geneticPacking from '../../helpers/geneticPacking';
+import simplePacking from '../../helpers/packingSimple';
 import styles from './mainLayout.module.scss';
 
+// geneticPacking({}, [1,2,3,4,5,6,7])
 
 const MainLayout = () => {
 
@@ -25,7 +27,10 @@ const MainLayout = () => {
     }
 
     const packing = (boxes, container) => {
-        const [boxesCalculatedForView, densityCalculated] = packingMaxHeight(container, boxes)
+        /// test
+        const [boxesCalculatedForView, densityCalculated] = geneticPacking(container, boxes)
+        //
+        // const [boxesCalculatedForView, densityCalculated] = simplePacking(container, boxes)
         setContainer(container)
         setBoxes(boxesCalculatedForView)
         setDensity(densityCalculated)

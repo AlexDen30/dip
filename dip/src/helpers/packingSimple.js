@@ -1,4 +1,4 @@
-export const packingMaxHeight = (container, boxes) => {
+export const simplePacking = (container, boxes) => {
     // x-width y-depth z-height ?
     const boxesH = boxes.map(box => ({...box, isUsed: false})).sort((a, b) => b.height - a.height)
 
@@ -14,7 +14,7 @@ export const packingMaxHeight = (container, boxes) => {
 
         result.push({
             position,
-            metrics: { width: box.width, height: box.height, depth: box.depth}
+            metrics: { width: box.width, height: box.height, depth: box.depth }
         })
 
         counter--
@@ -90,3 +90,5 @@ export const packingMaxHeight = (container, boxes) => {
 
     return [result, sumVolume / realVolume]
 }
+
+export default simplePacking

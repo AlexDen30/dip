@@ -47,7 +47,7 @@ const SideMenu = ({container, blocks, density, handleGenerate, handleUploadJson}
                     <JsonUploader returnParsedJson={handleUploadJson}/>
                     <button onClick={handleDownload}>Export as JSON</button>
                     <button onClick={handleGenerate}>Generate random Palleting</button>
-                    <button>Show statisics</button>
+                    <button>Show statistics</button>
                 </div>
             </ModalWindow>
         </div>
