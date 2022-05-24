@@ -49,8 +49,8 @@ const packing = (container, boxes, order) => {
 
                 if (i < boxes.length 
                         && boxes[order[i]].height + sumHeight <= container.height
-                        && boxes[order[i]].width <= basement.width
-                        && boxes[order[i]].depth <= basement.depth
+                        && boxes[order[i]].width <= result[result.length - 1].metrics.width
+                        && boxes[order[i]].depth <= result[result.length - 1].metrics.depth
                     ) {
                     
                     addToResult(boxes[order[i]], [sumWidth, sumHeight, currentX])

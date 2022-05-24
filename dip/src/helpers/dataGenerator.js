@@ -1,10 +1,10 @@
 import { randomInteger } from "./generalUtils"
 
-export const generatePackingData = () => {
+export const generatePackingData = (withDistance = false) => {
     const container = {
         width: randomInteger(20, 25), 
-        height: randomInteger(10, 15),
-        depth: randomInteger(30, 50)
+        height: randomInteger(20, 25),
+        depth: randomInteger(26, 31)
     }
 
     const boxesCount = randomInteger(10, 15)

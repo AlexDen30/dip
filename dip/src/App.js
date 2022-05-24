@@ -1,12 +1,19 @@
+import { useState } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import './App.scss';
-import MainLayout from './layouts/MainLayout/MainLayout';
+import { RoutesSwitch } from './components/Routes';
 
 function App() {
-  return (
-    <div className="App">
-      <MainLayout />
-    </div>
-  );
+
+	const [currentUser, setCurrentUser] = useState(false)
+
+	return (
+		<div className="App">
+			<BrowserRouter>
+				<RoutesSwitch currentUser={currentUser} setUser={(user) => setCurrentUser(user)} />
+			</BrowserRouter>
+		</div>
+	);
 }
 
 export default App;

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import PackingView2D from '../../components/packingView2D/PackingView2D';
 import PackingView3D from '../../components/packingView3D/PackingView3D';
 import SideMenu from '../../components/sideMenu/SideMenu';
@@ -9,7 +9,7 @@ import styles from './mainLayout.module.scss';
 
 // geneticPacking({}, [1,2,3,4,5,6,7])
 
-const MainLayout = () => {
+const MainLayout = ({currentUser, setUser}) => {
 
     const [boxes, setBoxes] = useState([])
     const [container, setContainer] = useState({})
@@ -50,6 +50,7 @@ const MainLayout = () => {
                     density={density} 
                     handleGenerate={handleRandomizePalleting} 
                     handleUploadJson={handleUploadJson}
+                    logout={() => setUser(false)}
                 />
             </div>
             <div className={styles.view}>
