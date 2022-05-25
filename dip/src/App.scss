@@ -29,6 +29,16 @@ button {
   border-radius: 3px;
 }
 
+input {
+  border-color: $borders-color;
+  border-radius: 3px;
+  padding: 0 5px 0 5px;
+}
+
+input:focus {
+  outline-color: $background-color;
+}
+
 
 .border-top-bottom {
   border-top: 1px solid rgb(100, 203, 169);

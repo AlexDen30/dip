@@ -34,17 +34,11 @@
 
         .popupMenuButton {
             position: absolute;
-            left: -70px;
+            left: -90px;
             font-size: 10px;
             height: 20px;
         }
 
-        .logoutButton {
-            position: absolute;
-            right: -70px;
-            font-size: 10px;
-            height: 20px;
-        }
     }
 
     .footer {
@@ -54,16 +48,4 @@
         align-items: center;
     }
 
-}
-
-.modalContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-
-    button {
-        width: 250px;
-    }
 }

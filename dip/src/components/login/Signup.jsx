@@ -1,21 +1,21 @@
-import { signInWithEmailAndPassword } from "firebase/auth"
+import { createUserWithEmailAndPassword } from "firebase/auth"
 import { useContext, useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { FirebaseContext } from "../.."
-import { ROUTE_MAIN } from "../../constants/routes"
 import styles from './login.module.scss'
 import { LoginForm } from "./LoginForm"
 
-export const Login = () => {
+export const Signup = () => {
 
     const {firebaseAuth} = useContext(FirebaseContext)
     const navigate = useNavigate()
 
     const [form, setForm] = useState({email: '', pass: ''})
 
-    const signin = async () => {
+    const signup = async () => {
         try {
-            const newUser = await signInWithEmailAndPassword(firebaseAuth, form.email, form.pass)
+            const newUser = await createUserWithEmailAndPassword(firebaseAuth, form.email, form.pass)
+            alert('User created!')
             setForm({email: '', pass: ''})
         } catch (error) {
             alert(error.message)
@@ -24,19 +24,19 @@ export const Login = () => {
 
     return (
         <div className={styles.container}>
-            <h4>Login</h4>
+            <h4>Signup</h4>
             <LoginForm form={form} setForm={setForm} />
             <button
-                onClick={signin} 
-                className={styles.formButton}
-            >
-                Login
-            </button>
-            <button
-                onClick={() => navigate('/signup')} 
+                onClick={signup} 
                 className={styles.formButton}
             >
                 Signup
+            </button>
+            <button
+                onClick={() => navigate('/login')} 
+                className={styles.formButton}
+            >
+                Login
             </button>
         </div>
     )

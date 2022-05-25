@@ -2,6 +2,18 @@
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 5px;
+}
+
+.formButton {
+    width: calc(20% + 16px);
+    height: 25px;
+}
+
+.formInput {
+    width: 20%;
+    height: 23px;
 }

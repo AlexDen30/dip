@@ -1,13 +1,12 @@
-import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { ROUTE_LOGIN } from '../../constants/routes';
+import { useContext, useState } from 'react';
+import { FirebaseContext } from '../..';
+import MainMenu from '../mainMenu/MainMenu';
 import ListItem from '../uiComponents/listItem/ListItem';
 import ModalWindow from '../uiComponents/modalWindow/ModalWindow';
 import downloadJson from '../utilityComponents/downloadFile';
-import JsonUploader from '../utilityComponents/fileUploader/JsonUploader';
 import styles from './sideMenu.module.scss';
 
-const SideMenu = ({container, blocks, density, handleGenerate, handleUploadJson, logout}) => {
+const SideMenu = ({container, blocks, density, handleGenerate, handleUploadJson}) => {
 
     const [isMenuShowed, setIsMenuShowed] = useState(false);
 
@@ -20,11 +19,6 @@ const SideMenu = ({container, blocks, density, handleGenerate, handleUploadJson,
             <div className={styles.header}>
                 <button onClick={() => setIsMenuShowed(true)} className={styles.popupMenuButton}>Menu</button>
                 <h4 className={styles.headerName}>Palleting</h4>
-                    <button onClick={logout} className={styles.logoutButton}>
-                        <NavLink to={ROUTE_LOGIN} >
-                            Logout
-                        </NavLink>
-                    </button>
             </div>
             <div className={styles.info}>
             { !!container.width &&
@@ -49,12 +43,12 @@ const SideMenu = ({container, blocks, density, handleGenerate, handleUploadJson,
                 <button onClick={handleGenerate}>Generate random Palleting</button>
             </div>
             <ModalWindow isShowed={isMenuShowed} close={() => setIsMenuShowed(false)}>
-                <div className={styles.modalContainer} onClick={() => setIsMenuShowed(false)}>
-                    <JsonUploader returnParsedJson={handleUploadJson}/>
-                    <button onClick={handleDownload}>Export as JSON</button>
-                    <button onClick={handleGenerate}>Generate random Palleting</button>
-                    <button>Show statistics</button>
-                </div>
+                <MainMenu
+                    closeMenu={() => setIsMenuShowed(false)}
+                    handleUploadJson={handleUploadJson}
+                    handleGenerate={handleGenerate}
+                    handleDownload={handleDownload}
+                />
             </ModalWindow>
         </div>
     )
