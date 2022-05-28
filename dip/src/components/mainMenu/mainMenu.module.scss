@@ -8,4 +8,20 @@
     button {
         width: 250px;
     }
+
+    .statisticsList {
+        width: 250px;
+        max-height: 150px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        padding: 0 5px 0 0;
+        margin: 0;
+    }
+
+    .statisticsHeader {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
