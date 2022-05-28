@@ -36,7 +36,6 @@ const MainLayout = () => {
                     userId: firebaseAuth.currentUser.uid,
                     timestamp: Date.now()
                 })
-                console.log(res)
             } catch (error) {
                 console.log(error.message)
             }

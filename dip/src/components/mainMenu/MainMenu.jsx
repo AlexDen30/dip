@@ -19,23 +19,26 @@ const MainMenu = ({closeMenu, handleUploadJson, handleGenerate, handleDownload})
 
     const [palletings, setPalletings] = useState([])
     const [lastPalleting, setLastPalleting] = useState()
-
+    const [allLoaded, setAllLoaded] = useState(false)
+    
     const updatePalletingState = useCallback((collections) => {
-        if (collections.size !== 0) {
+        if (collections.docs.length !== 0) {
             setPalletings([...palletings, ...collections.docs.map(palleting => palleting.data())])
             setLastPalleting(collections.docs[collections.docs.length - 1])
+        } else {
+            setAllLoaded(true)
         }
-    }, [])
+    }, [palletings])
 
     useEffect(() => {
         if (user.uid) {
             const startQuery = query(palletingCollection, where('userId', '==', user.uid), orderBy('timestamp', 'desc'), limit(4))
             onSnapshot(startQuery, palletings => updatePalletingState(palletings))
         }
-    }, [user, updatePalletingState])
+    }, [user])
 
     const getMorePalletings = () => {
-        const moreQuery = query(palletingCollection, where('userId', '==', firebaseAuth.currentUser.uid), orderBy('timestamp', 'desc'), startAfter(lastPalleting), limit(4))
+        const moreQuery = query(palletingCollection, where('userId', '==', user.uid), orderBy('timestamp', 'desc'), startAfter(lastPalleting), limit(3))
         onSnapshot(moreQuery, palletings => updatePalletingState(palletings))
     }
 
@@ -91,7 +94,7 @@ const MainMenu = ({closeMenu, handleUploadJson, handleGenerate, handleDownload})
                             />
                             </div>
                         ))}
-                        <IntersectionObs intersectionCallback={getMorePalletings}/>
+                        <IntersectionObs intersectionCallback={allLoaded ? () => {} : getMorePalletings}/>
                     </ul>
                     <button onClick={() => setShowStatistics(false)}>Back to menu</button>
                 </> 
