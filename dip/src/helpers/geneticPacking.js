@@ -2,8 +2,8 @@ import { randomInteger } from "./generalUtils";
 
 const shuffle = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+        let j = Math.floor(Math.random() * (i + 1))
+        [array[i], array[j]] = [array[j], array[i]]
     }
 }
 
@@ -168,15 +168,14 @@ const geneticPacking = (container, boxes) => {
         for (let j = 2; j < newGenerationChromosomes.length; j++) {
 
             const randNum = randomInteger(0, 100)
-            const isMutating = randNum === 1
 
-            if (isMutating) {
+            if (randNum === 1) {
                 const newPositionOfFirstElem = randomInteger(1, newGenerationChromosomes.length - 1)
 
                 let swapContainer = newGenerationChromosomes[j][0]
                 newGenerationChromosomes[j][0] = newGenerationChromosomes[j][newPositionOfFirstElem]
                 newGenerationChromosomes[j][newPositionOfFirstElem] = swapContainer
-            } 
+            }
         }
 
         chromosomes = newGenerationChromosomes
