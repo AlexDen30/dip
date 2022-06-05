@@ -1,8 +1,7 @@
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { useContext, useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { FirebaseContext } from "../.."
-import { ROUTE_MAIN } from "../../constants/routes"
 import styles from './login.module.scss'
 import { LoginForm } from "./LoginForm"
 

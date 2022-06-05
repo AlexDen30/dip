@@ -1,5 +1,4 @@
-import { useContext, useState } from 'react';
-import { FirebaseContext } from '../..';
+import { useState } from 'react';
 import MainMenu from '../mainMenu/MainMenu';
 import ListItem from '../uiComponents/listItem/ListItem';
 import ModalWindow from '../uiComponents/modalWindow/ModalWindow';

@@ -16,4 +16,3 @@ const app = initializeApp(fbConfig)
 export const firebase = app
 export const firebaseDB = getFirestore(app)
 export const firebaseAuth = getAuth(app)
-// export const firebaseAuth = get
