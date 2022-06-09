@@ -46,7 +46,7 @@ const MainLayout = () => {
         const [boxesCalculatedForView, densityCalculated] = geneticPacking(container, boxes)
         // const [boxesCalculatedForView, densityCalculated] = simplePacking(container, boxes)
 
-        handleStorePalleting(densityCalculated, container, boxesCalculatedForView)
+        // handleStorePalleting(densityCalculated, container, boxesCalculatedForView)
 
         setContainer(container)
         setBoxes(boxesCalculatedForView)

@@ -12,9 +12,9 @@ export const generatePackingData = () => {
 
     for (let i = 0; i < boxesCount; i++) {
         boxes.push({
-            width: randomInteger(3, 9), 
-            height: randomInteger(3, 9),
-            depth: randomInteger(3, 9)
+            width: randomInteger(4, 6), 
+            height: randomInteger(4, 6),
+            depth: randomInteger(4, 6)
         })
     }
 
